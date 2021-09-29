@@ -443,9 +443,10 @@ jobs:
           cd %REPO_NAME%\Telegram
 
           call configure.bat ^
-          -D TDESKTOP_API_TEST=ON ^
+          -D TDESKTOP_API_ID=${{secrets.TG_APP_ID}} ^
+          -D TDESKTOP_API_HASH=${{secrets.TG_APP_HASH}} ^
           -D DESKTOP_APP_USE_PACKAGED=OFF ^
-          -D DESKTOP_APP_DISABLE_CRASH_REPORTS=OFF ^
+          -D DESKTOP_APP_DISABLE_CRASH_REPORTS=ON ^
           -D DESKTOP_APP_NO_PDB=ON ^
           %TDESKTOP_BUILD_DEFINE% ^
           -DCMAKE_SYSTEM_VERSION=%SDK%
